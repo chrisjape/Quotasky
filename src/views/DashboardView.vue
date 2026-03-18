@@ -11,14 +11,15 @@ const autor = ref('')
 
 const obtenerFrase = async () => {
   try {
-    const respuesta = await fetch('https://api.quotable.io/random')
-    if (!respuesta.ok) throw new Error('Error en la API')
+    const respuesta = await fetch('https://quotes-api-production-d6a7.up.railway.app/quotes/random')
     const datos = await respuesta.json()
-    frase.value = datos.content
-    autor.value = datos.author
+    if (!datos.success) throw new Error(datos.message)
+    frase.value = datos.data.text
+    autor.value = datos.data.author
   } catch (error) {
     frase.value = "La disciplina es el puente entre metas y logros."
     autor.value = "Jim Rohn"
+    console.warn("API no disponible:", error.message)
   }
 }
 
