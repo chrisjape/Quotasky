@@ -1,5 +1,6 @@
 # Quotasky
 
+Quotasky is a website made to help with productivity, its three main functions being a timer for Pomodoro technique, a checklist for tasks and motivational phrases to keep the motivation flowing.
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
